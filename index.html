@@ -1,950 +1,122 @@
-<!DOCTYPE html>
-<html lang="en">
+<!DOCTYPE html><html lang="id">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>Pino Design - Creative Design Solutions</title>
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css">
-    <style>
-        :root {
-            --primary: #000000;
-            --secondary: #ffffff;
-            --accent: #f5f5f5;
-            --text: #333333;
-            --light-text: #777777;
-        }
-        
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-        
-        html {
-            scroll-behavior: smooth;
-        }
-        
-        body {
-            font-family: 'Inter', sans-serif;
-            color: var(--text);
-            line-height: 1.6;
-            background-color: var(--secondary);
-            overflow-x: hidden;
-        }
-        
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 20px;
-        }
-        
-        /* Header */
-        header {
-            background-color: var(--secondary);
-            padding: 20px 0;
-            position: fixed;
-            width: 100%;
-            z-index: 1000;
-            transition: all 0.3s ease;
-            top: 0;
-            box-shadow: 0 2px 20px rgba(0, 0, 0, 0.05);
-        }
-        
-        .header-container {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-        
-        .logo {
-            font-size: 24px;
-            font-weight: 700;
-            color: var(--primary);
-            text-decoration: none;
-            letter-spacing: 1px;
-        }
-        
-        .logo span {
-            font-weight: 300;
-        }
-        
-        nav ul {
-            display: flex;
-            list-style: none;
-        }
-        
-        nav ul li {
-            margin-left: 30px;
-        }
-        
-        nav ul li a {
-            text-decoration: none;
-            color: var(--text);
-            font-weight: 500;
-            font-size: 15px;
-            transition: all 0.3s;
-            position: relative;
-        }
-        
-        nav ul li a:after {
-            content: '';
-            position: absolute;
-            width: 0;
-            height: 1px;
-            bottom: -3px;
-            left: 0;
-            background-color: var(--primary);
-            transition: width 0.3s;
-        }
-        
-        nav ul li a:hover:after {
-            width: 100%;
-        }
-        
-        /* Hero Section */
-        .hero {
-            min-height: 100vh;
-            display: flex;
-            align-items: center;
-            background-color: var(--secondary);
-            padding: 120px 0 60px;
-            position: relative;
-        }
-        
-        .hero-content {
-            max-width: 600px;
-            position: relative;
-            z-index: 2;
-        }
-        
-        .hero h1 {
-            font-size: 52px;
-            font-weight: 700;
-            margin-bottom: 20px;
-            color: var(--primary);
-            line-height: 1.2;
-        }
-        
-        .hero h1 span {
-            font-weight: 300;
-            display: block;
-        }
-        
-        .hero p {
-            font-size: 18px;
-            color: var(--light-text);
-            margin-bottom: 30px;
-            max-width: 500px;
-        }
-        
-        .hero-social {
-            display: flex;
-            gap: 15px;
-            margin-top: 30px;
-        }
-        
-        .hero-social a {
-            color: var(--primary);
-            font-size: 20px;
-            transition: all 0.3s;
-        }
-        
-        .hero-social a:hover {
-            transform: translateY(-3px);
-            opacity: 0.8;
-        }
-        
-        .cta-button {
-            display: inline-block;
-            background-color: var(--primary);
-            color: var(--secondary);
-            padding: 14px 28px;
-            border-radius: 30px;
-            text-decoration: none;
-            font-weight: 600;
-            transition: all 0.3s;
-            border: 1px solid var(--primary);
-            font-size: 15px;
-        }
-        
-        .cta-button:hover {
-            background-color: transparent;
-            color: var(--primary);
-            transform: translateY(-3px);
-        }
-        
-        /* Why Choose Us Section */
-        .why-choose {
-            padding: 100px 0;
-            background-color: var(--secondary);
-        }
-        
-        .section-header {
-            text-align: center;
-            margin-bottom: 60px;
-        }
-        
-        .section-title {
-            font-size: 36px;
-            font-weight: 700;
-            margin-bottom: 15px;
-            color: var(--primary);
-        }
-        
-        .section-subtitle {
-            font-size: 16px;
-            color: var(--light-text);
-            max-width: 600px;
-            margin: 0 auto;
-        }
-        
-        .why-content {
-            max-width: 800px;
-            margin: 0 auto 50px;
-            text-align: center;
-            font-size: 18px;
-            line-height: 1.8;
-        }
-        
-        .benefits-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 30px;
-            margin-top: 50px;
-        }
-        
-        .benefit-card {
-            background-color: var(--accent);
-            border-radius: 8px;
-            padding: 30px;
-            text-align: center;
-            transition: all 0.3s ease;
-        }
-        
-        .benefit-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
-        }
-        
-        .benefit-icon {
-            font-size: 40px;
-            margin-bottom: 20px;
-            color: var(--primary);
-        }
-        
-        .benefit-card h3 {
-            font-size: 20px;
-            margin-bottom: 15px;
-            color: var(--primary);
-        }
-        
-        .benefit-card p {
-            color: var(--light-text);
-            font-size: 15px;
-        }
-        
-        /* How to Order Section */
-        .how-to-order {
-            padding: 100px 0;
-            background-color: var(--accent);
-        }
-        
-        .steps-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 30px;
-            margin-top: 50px;
-        }
-        
-        .step-card {
-            background-color: var(--secondary);
-            border-radius: 8px;
-            padding: 30px;
-            text-align: center;
-            position: relative;
-            transition: all 0.3s ease;
-        }
-        
-        .step-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
-        }
-        
-        .step-number {
-            width: 50px;
-            height: 50px;
-            background-color: var(--primary);
-            color: var(--secondary);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin: 0 auto 20px;
-            font-weight: 700;
-            font-size: 20px;
-        }
-        
-        .step-card h3 {
-            font-size: 18px;
-            margin-bottom: 15px;
-            color: var(--primary);
-        }
-        
-        .step-card p {
-            color: var(--light-text);
-            font-size: 15px;
-        }
-        
-        /* Services Section */
-        .services {
-            padding: 100px 0;
-            background-color: var(--secondary);
-        }
-        
-        .services-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 25px;
-        }
-        
-        .service-card {
-            background-color: var(--accent);
-            border-radius: 8px;
-            padding: 30px;
-            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.03);
-            border: 1px solid rgba(0, 0, 0, 0.03);
-        }
-        
-        .service-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.08);
-        }
-        
-        .service-icon {
-            width: 50px;
-            height: 50px;
-            background-color: var(--primary);
-            color: var(--secondary);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin-bottom: 20px;
-            font-size: 20px;
-        }
-        
-        .service-card h3 {
-            font-size: 20px;
-            margin-bottom: 15px;
-            color: var(--primary);
-        }
-        
-        .service-card p {
-            color: var(--light-text);
-            font-size: 15px;
-        }
-        
-        /* Testimonials Section */
-        .testimonials {
-            padding: 100px 0;
-            background-color: var(--accent);
-        }
-        
-        .testimonial-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
-            margin-top: 50px;
-        }
-        
-        .testimonial-card {
-            background-color: var(--secondary);
-            padding: 30px;
-            border-radius: 8px;
-            position: relative;
-        }
-        
-        .testimonial-card:before {
-            content: '"';
-            position: absolute;
-            font-size: 80px;
-            color: rgba(0, 0, 0, 0.05);
-            top: 10px;
-            left: 20px;
-            line-height: 1;
-        }
-        
-        .testimonial-text {
-            font-size: 16px;
-            margin-bottom: 20px;
-            position: relative;
-            z-index: 1;
-        }
-        
-        .testimonial-rating {
-            color: #ffc107;
-            font-size: 18px;
-            margin-bottom: 10px;
-        }
-        
-        /* Portfolio Section */
-        .portfolio {
-            padding: 100px 0;
-            background-color: var(--secondary);
-        }
-        
-        .portfolio-filter {
-            display: flex;
-            justify-content: center;
-            margin-bottom: 40px;
-            flex-wrap: wrap;
-            gap: 10px;
-        }
-        
-        .filter-btn {
-            padding: 8px 20px;
-            background: transparent;
-            border: 1px solid rgba(0, 0, 0, 0.1);
-            border-radius: 30px;
-            font-family: 'Inter', sans-serif;
-            font-size: 14px;
-            cursor: pointer;
-            transition: all 0.3s;
-        }
-        
-        .filter-btn:hover, .filter-btn.active {
-            background-color: var(--primary);
-            color: var(--secondary);
-            border-color: var(--primary);
-        }
-        
-        .portfolio-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-            gap: 20px;
-        }
-        
-        .portfolio-item {
-            position: relative;
-            border-radius: 8px;
-            overflow: hidden;
-            aspect-ratio: 1/1;
-        }
-        
-        .portfolio-item img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: all 0.5s ease;
-        }
-        
-        .portfolio-item:hover img {
-            transform: scale(1.05);
-        }
-        
-        .portfolio-overlay {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0, 0, 0, 0.8);
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            opacity: 0;
-            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-            padding: 20px;
-            text-align: center;
-        }
-        
-        .portfolio-item:hover .portfolio-overlay {
-            opacity: 1;
-        }
-        
-        .portfolio-overlay h3 {
-            color: var(--secondary);
-            font-size: 20px;
-            margin-bottom: 10px;
-        }
-        
-        .portfolio-overlay p {
-            color: rgba(255, 255, 255, 0.8);
-            margin-bottom: 0;
-            font-size: 14px;
-        }
-        
-        /* CTA Section */
-        .cta-section {
-            padding: 80px 0;
-            background-color: var(--primary);
-            color: var(--secondary);
-            text-align: center;
-        }
-        
-        .cta-section h2 {
-            font-size: 32px;
-            margin-bottom: 20px;
-            color: var(--secondary);
-        }
-        
-        .cta-section p {
-            font-size: 16px;
-            color: rgba(255, 255, 255, 0.8);
-            max-width: 600px;
-            margin: 0 auto 30px;
-        }
-        
-        .cta-button.white {
-            background-color: var(--secondary);
-            color: var(--primary);
-            border-color: var(--secondary);
-        }
-        
-        .cta-button.white:hover {
-            background-color: transparent;
-            color: var(--secondary);
-        }
-        
-        /* Footer */
-        footer {
-            background-color: var(--primary);
-            color: var(--secondary);
-            padding: 60px 0 20px;
-        }
-        
-        .footer-container {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 40px;
-            margin-bottom: 40px;
-        }
-        
-        .footer-col h3 {
-            font-size: 18px;
-            margin-bottom: 20px;
-            font-weight: 600;
-            letter-spacing: 0.5px;
-        }
-        
-        .footer-col p, .footer-col a {
-            margin-bottom: 12px;
-            opacity: 0.8;
-            font-size: 14px;
-            display: block;
-            color: var(--secondary);
-            text-decoration: none;
-            transition: opacity 0.3s;
-        }
-        
-        .footer-col a:hover {
-            opacity: 1;
-        }
-        
-        .social-links {
-            display: flex;
-            gap: 15px;
-            margin-top: 20px;
-        }
-        
-        .social-links a {
-            width: 36px;
-            height: 36px;
-            border-radius: 50%;
-            background-color: rgba(255, 255, 255, 0.1);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            transition: all 0.3s;
-        }
-        
-        .social-links a:hover {
-            background-color: var(--secondary);
-            color: var(--primary);
-        }
-        
-        .footer-bottom {
-            text-align: center;
-            padding-top: 20px;
-            border-top: 1px solid rgba(255, 255, 255, 0.1);
-            font-size: 13px;
-            opacity: 0.7;
-        }
-        
-        /* Animations */
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(20px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-        
-        .fade-in {
-            animation: fadeIn 0.8s ease forwards;
-        }
-        
-        .delay-1 { animation-delay: 0.2s; }
-        .delay-2 { animation-delay: 0.4s; }
-        .delay-3 { animation-delay: 0.6s; }
-        
-        /* Responsive Design */
-        @media (max-width: 992px) {
-            .hero h1 {
-                font-size: 42px;
-            }
-            
-            .section-title {
-                font-size: 30px;
-            }
-        }
-        
-        @media (max-width: 768px) {
-            nav ul li {
-                margin-left: 15px;
-            }
-            
-            .hero h1 {
-                font-size: 36px;
-            }
-            
-            .portfolio-filter {
-                gap: 8px;
-            }
-            
-            .filter-btn {
-                padding: 6px 15px;
-                font-size: 13px;
-            }
-            
-            .hero {
-                padding-top: 100px;
-            }
-        }
-        
-        @media (max-width: 576px) {
-            .header-container {
-                flex-direction: column;
-            }
-            
-            nav ul {
-                margin-top: 15px;
-                flex-wrap: wrap;
-                justify-content: center;
-            }
-            
-            nav ul li {
-                margin: 5px 10px;
-            }
-            
-            .hero {
-                text-align: center;
-                padding-top: 120px;
-            }
-            
-            .hero h1 {
-                font-size: 30px;
-            }
-            
-            .hero p {
-                margin-left: auto;
-                margin-right: auto;
-            }
-            
-            .services-grid, .benefits-grid, .steps-grid {
-                grid-template-columns: 1fr;
-            }
-            
-            .portfolio-grid {
-                grid-template-columns: 1fr;
-            }
-            
-            .footer-container {
-                grid-template-columns: 1fr;
-                text-align: center;
-            }
-            
-            .hero-social, .social-links {
-                justify-content: center;
-            }
-        }
-    </style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>PinoDesign</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --primary: #022168;
+      --accent: #f8d41a;
+      --bg: #ffffff;
+      --radius: 16px;
+    }* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Inter', sans-serif;
+  background: var(--bg);
+  color: #111;
+  padding: 60px 20px;
+  text-align: center;
+  animation: fadeIn 0.8s ease-out;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.logo img {
+  width: 110px;
+  height: 110px;
+  border-radius: 50%;
+  object-fit: cover;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.1);
+  transition: transform 0.3s ease;
+}
+
+.logo img:hover {
+  transform: scale(1.05);
+}
+
+.name {
+  font-size: 24px;
+  font-weight: 700;
+  color: var(--primary);
+  margin-top: 16px;
+}
+
+.desc {
+  font-size: 15px;
+  color: #444;
+  margin: 10px 0 30px;
+  max-width: 360px;
+  margin-inline: auto;
+}
+
+.section-title {
+  font-weight: 600;
+  font-size: 15px;
+  color: var(--primary);
+  margin: 28px 0 14px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  position: relative;
+}
+
+.section-title::after {
+  content: "";
+  display: block;
+  width: 40px;
+  height: 3px;
+  background: var(--accent);
+  margin: 8px auto 0;
+  border-radius: 2px;
+}
+
+.link-btn {
+  display: block;
+  width: 100%;
+  max-width: 360px;
+  margin: 10px auto;
+  padding: 14px 22px;
+  background: var(--primary);
+  color: white;
+  border-radius: var(--radius);
+  font-weight: 600;
+  font-size: 15px;
+  text-decoration: none;
+  box-shadow: 0 6px 12px rgba(2, 33, 104, 0.2);
+  transition: background 0.3s ease, transform 0.2s;
+}
+
+.link-btn:hover {
+  background: #01194b;
+  transform: translateY(-2px);
+}
+
+.footer {
+  margin-top: 50px;
+  font-size: 12px;
+  color: #999;
+}
+
+  </style>
 </head>
-<body>
-    <!-- Header -->
-    <header id="header">
-        <div class="container header-container">
-            <a href="#" class="logo">Pino<span>Design</span></a>
-            <nav>
-                <ul>
-                    <li><a href="#home">Home</a></li>
-                    <li><a href="#why-choose">Why Choose Us</a></li>
-                    <li><a href="#how-to-order">How to Order</a></li>
-                    <li><a href="#services">Services</a></li>
-                    <li><a href="#portfolio">Portfolio</a></li>
-                    <li><a href="#contact">Contact</a></li>
-                </ul>
-            </nav>
-        </div>
-    </header>
-
-    <!-- Hero Section -->
-    <section class="hero" id="home">
-        <div class="container">
-            <div class="hero-content fade-in">
-                <h1>Designs That <span>Speak For You</span></h1>
-                <p class="delay-1">We create stunning designs that effectively communicate your brand's message across all platforms.</p>
-                <a href="#contact" class="cta-button delay-2">Start Your Project</a>
-                <div class="hero-social delay-3">
-                    <a href="https://instagram.com/pinoo.design" target="_blank"><i class="fab fa-instagram"></i></a>
-                    <a href="https://t.me/finoyaaaa" target="_blank"><i class="fab fa-telegram"></i></a>
-                    <a href="https://wa.me/6285805437406" target="_blank"><i class="fab fa-whatsapp"></i></a>
-                    <a href="https://pinterest.com/pinodesign_" target="_blank"><i class="fab fa-pinterest"></i></a>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Why Choose Us Section -->
-    <section class="why-choose" id="why-choose">
-        <div class="container">
-            <div class="section-header" data-aos="fade-up">
-                <h2 class="section-title">Kenapa Harus Pilih Pino Design?</h2>
-                <p class="section-subtitle">Kami nggak cuma bikin desain yang bagus, tapi juga bantu bisnismu tampil lebih menarik dan terpercaya di mata pelanggan</p>
-            </div>
-            
-            <div class="why-content" data-aos="fade-up">
-                Dengan tampilan visual yang kekinian dan sesuai karakter brand kamu, Pino Design siap bantu bisnismu makin terlihat profesional dan beda dari yang lain.
-            </div>
-            
-            <div class="benefits-grid">
-                <div class="benefit-card" data-aos="fade-up" data-aos-delay="100">
-                    <div class="benefit-icon">🔥</div>
-                    <h3>Desain Menarik & Nggak Pasaran</h3>
-                    <p>Kami buat desain yang fresh, beda dari yang lain, dan cocok banget buat kebutuhan promosi digital.</p>
-                </div>
-                <div class="benefit-card" data-aos="fade-up" data-aos-delay="200">
-                    <div class="benefit-icon">💰</div>
-                    <h3>Harga Aman di Kantong</h3>
-                    <p>Nggak perlu khawatir soal biaya, karena layanan kami bisa disesuaikan dengan budget, terutama buat UMKM.</p>
-                </div>
-                <div class="benefit-card" data-aos="fade-up" data-aos-delay="300">
-                    <div class="benefit-icon">🎨</div>
-                    <h3>Dibuat Sesuai Karakter Brand</h3>
-                    <p>Semua desain kami dibuat dari nol, sesuai dengan ciri khas bisnismu. Bukan dari template umum yang udah sering dipakai.</p>
-                </div>
-                <div class="benefit-card" data-aos="fade-up" data-aos-delay="400">
-                    <div class="benefit-icon">✅</div>
-                    <h3>Terpercaya & Berpengalaman</h3>
-                    <p>Udah aktif sejak 2024 dan dipercaya banyak klien, kami punya banyak portofolio dan pengalaman di berbagai proyek desain.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- How to Order Section -->
-    <section class="how-to-order" id="how-to-order">
-        <div class="container">
-            <div class="section-header" data-aos="fade-up">
-                <h2 class="section-title">Cara Order di Pino Design</h2>
-                <p class="section-subtitle">Mau desain yang kece tapi nggak ribet prosesnya? Tenang, di Pino Design semuanya gampang dan cepat!</p>
-            </div>
-            
-            <div class="why-content" data-aos="fade-up">
-                Ikuti langkah-langkah di bawah ini supaya order kamu langsung kami kerjakan sesuai kebutuhan:
-            </div>
-            
-            <div class="steps-grid">
-                <div class="step-card" data-aos="fade-up" data-aos-delay="100">
-                    <div class="step-number">1</div>
-                    <h3>Tentukan Layanan</h3>
-                    <p>Pilih jenis desain yang kamu butuhkan (seperti feed Instagram, story, banner, logo, dan lainnya).</p>
-                </div>
-                <div class="step-card" data-aos="fade-up" data-aos-delay="200">
-                    <div class="step-number">2</div>
-                    <h3>Konsultasi & Penawaran</h3>
-                    <p>Ceritakan kebutuhan desainmu. Kami akan kasih rekomendasi dan estimasi harga + waktu pengerjaan.</p>
-                </div>
-                <div class="step-card" data-aos="fade-up" data-aos-delay="300">
-                    <div class="step-number">3</div>
-                    <h3>Isi Brief</h3>
-                    <p>Kamu akan diminta mengisi form singkat untuk menjelaskan detail desain yang diinginkan.</p>
-                </div>
-                <div class="step-card" data-aos="fade-up" data-aos-delay="400">
-                    <div class="step-number">4</div>
-                    <h3>Bayar & Proses</h3>
-                    <p>Setelah pembayaran dikonfirmasi, kami akan mulai proses desain sesuai jadwal yang sudah disepakati.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Services Section -->
-    <section class="services" id="services">
-        <div class="container">
-            <div class="section-header" data-aos="fade-up">
-                <h2 class="section-title">Layanan Desain Pino Design</h2>
-                <p class="section-subtitle">Kami menyediakan beragam layanan desain yang dirancang untuk memenuhi kebutuhan bisnis, personal, maupun institusi</p>
-            </div>
-            <div class="services-grid">
-                <div class="service-card" data-aos="fade-up" data-aos-delay="100">
-                    <div class="service-icon">1</div>
-                    <h3>Konten Digital & Sosial Media</h3>
-                    <p>Desain untuk kebutuhan Instagram, LinkedIn, YouTube, dan platform lainnya: Feed, Story, Carousel, Highlight Cover, Thumbnail, Banner, dll.</p>
-                </div>
-                <div class="service-card" data-aos="fade-up" data-aos-delay="150">
-                    <div class="service-icon">2</div>
-                    <h3>Desain Promosi & Cetak</h3>
-                    <p>Poster, Flyer, Spanduk, Brosur, X-Banner, Roll Banner, Katalog, Menu Makanan, dan materi promosi lainnya dalam format digital maupun cetak.</p>
-                </div>
-                <div class="service-card" data-aos="fade-up" data-aos-delay="200">
-                    <div class="service-icon">3</div>
-                    <h3>Branding & Identitas Visual</h3>
-                    <p>Pembuatan Logo, Company Profile, Brand Guidelines (warna, font, tone), hingga Stationery (Kartu Nama, Kop Surat, Amplop).</p>
-                </div>
-                <div class="service-card" data-aos="fade-up" data-aos-delay="250">
-                    <div class="service-icon">4</div>
-                    <h3>Packaging & Label Produk</h3>
-                    <p>Desain kemasan makanan/minuman, label stiker produk, serta paperbag atau box kemasan untuk meningkatkan daya tarik produkmu.</p>
-                </div>
-                <div class="service-card" data-aos="fade-up" data-aos-delay="300">
-                    <div class="service-icon">5</div>
-                    <h3>Desain Edukatif & Presentasi</h3>
-                    <p>E-book, modul belajar, infografis edukasi, pitch deck, slide presentasi, hingga struktur organisasi untuk kebutuhan sekolah, kantor, atau lembaga.</p>
-                </div>
-                <div class="service-card" data-aos="fade-up" data-aos-delay="350">
-                    <div class="service-icon">6</div>
-                    <h3>Motion Graphic & Video Reels</h3>
-                    <p>Konten animasi untuk promosi, edukasi, wedding, dan media sosial (Reels, TikTok), termasuk animasi teks, produk, dan video pendek.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Portfolio Section -->
-    <section class="portfolio" id="portfolio">
-        <div class="container">
-            <div class="section-header" data-aos="fade-up">
-                <h2 class="section-title">Our Portfolio</h2>
-                <p class="section-subtitle">Explore our recent work and see how we've helped clients achieve their goals</p>
-            </div>
-            
-                <div class="portfolio-item" data-category="logo" data-aos="fade-up" data-aos-delay="300">
-<img src="https://iili.io/FfSJiN9.jpg" alt="Pinterest">
-                    <div class="portfolio-overlay">
-                        <h3>Check out our portfolio at</h3>
-                        <p>Pinterest: @Pinodesign_</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Testimonials Section -->
-    <section class="testimonials" id="testimonials">
-        <div class="container">
-            <div class="section-header" data-aos="fade-up">
-                <h2 class="section-title">Client Testimonials</h2>
-                <p class="section-subtitle">What our clients say about our services</p>
-            </div>
-            
-            <div class="testimonial-grid">
-                <div class="testimonial-card" data-aos="fade-up" data-aos-delay="100">
-                    <div class="testimonial-rating">★★★★★</div>
-                    <p class="testimonial-text">10/10 ADMIN RAMAHHJ DAN MURAHHH BANGEETTT DISINI LANGGAANAN POKONYAA</p>
-                </div>
-                <div class="testimonial-card" data-aos="fade-up" data-aos-delay="200">
-                    <div class="testimonial-rating">★★★★★</div>
-                    <p class="testimonial-text">100000000000000000000/10 bnr bnr keren bgt🥺 pelayanannya cepatt terus dibantu bgt dr awal karena ada beberapa masalah, dan jg sellernya baik bgt🔥🤍🤍🤍🤍🤍🤍</p>
-                </div>
-                <div class="testimonial-card" data-aos="fade-up" data-aos-delay="300">
-                    <div class="testimonial-rating">★★★★★</div>
-                    <p class="testimonial-text">ADMINNYA ASIK BGT, RAMAHH, TERUS BAIK POLL, DIBIMBING DENGAN BAIK JUGAA, TERIMAKASIH BANYAK MIN PINO🫶🫶🫶🥰🥰🥰</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- CTA Section -->
-    <section class="cta-section" id="contact" data-aos="fade-up">
-        <div class="container">
-            <h2>Ready to elevate your brand?</h2>
-            <p>Let's discuss how we can help you achieve your goals with stunning design solutions.</p>
-            <a href="https://wa.link/apeufp" class="cta-button white">Contact via WhatsApp</a>
-        </div>
-    </section>
-
-    <!-- Footer -->
-    <footer>
-        <div class="container">
-            <div class="footer-container">
-                <div class="footer-col">
-                    <h3>PinoDesign</h3>
-                    <p>Designs That Speak For You. Professional design solutions for modern businesses.</p>
-                    <div class="social-links">
-                        <a href="https://instagram.com/pinoo.design" target="_blank"><i class="fab fa-instagram"></i></a>
-                        <a href="https://t.me/finoyaaaa" target="_blank"><i class="fab fa-telegram"></i></a>
-                        <a href="https://wa.me/6285805437406" target="_blank"><i class="fab fa-whatsapp"></i></a>
-                        <a href="https://pinterest.com/pinodesign_" target="_blank"><i class="fab fa-pinterest"></i></a>
-                    </div>
-                </div>
-                <div class="footer-col">
-                    <h3>Contact</h3>
-                    <a href="https://wa.me/6285805437406">WhatsApp: +62 858-0543-7406</a>
-                </div>
-            </div>
-            <div class="footer-bottom">
-                <p>&copy; 2025 PinoDesign. All rights reserved.</p>
-            </div>
-    </footer>
-
-    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
-    <script>
-        // Initialize AOS animation library
-        AOS.init({
-            duration: 800,
-            easing: 'ease-in-out',
-            once: true
-        });
-        
-        // Portfolio filtering
-        const filterBtns = document.querySelectorAll('.filter-btn');
-        const portfolioItems = document.querySelectorAll('.portfolio-item');
-        
-        filterBtns.forEach(btn => {
-            btn.addEventListener('click', () => {
-                // Remove active class from all buttons
-                filterBtns.forEach(btn => btn.classList.remove('active'));
-                // Add active class to clicked button
-                btn.classList.add('active');
-                
-                const filter = btn.getAttribute('data-filter');
-                
-                portfolioItems.forEach(item => {
-                    if (filter === 'all' || item.getAttribute('data-category') === filter) {
-                        item.style.display = 'block';
-                    } else {
-                        item.style.display = 'none';
-                    }
-                });
-            });
-        });
-        
-        // Smooth scrolling for anchor links
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function(e) {
-                e.preventDefault();
-                
-                const target = document.querySelector(this.getAttribute('href'));
-                if (target) {
-                    window.scrollTo({
-                        top: target.offsetTop - 80,
-                        behavior: 'smooth'
-                    });
-                }
-            });
-        });
-    </script>
-</body>
+<body>  <div class="logo">
+    <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiVJRAnDu_AVaVB1IlMJrjBU9B-lS0tvZrTBBf7w5js5ofhhvWcrxQoIDuEONVlHbs1g9DhckX9haPHHn3dsVVqN6rVy5CS2ZSdIzL-egX13LO-YXJUdn1GBgs3pyLMrKg_uWUcKcjHgsIlX00glLdJFNSC98_uKauViINlWRyrwGIseHiyY3HSRKkquN9s/s938/1752383606637.png" alt="Logo PinoDesign">
+  </div>  <div class="name">@pinodesignnn</div>
+  <div class="desc">Layanan desain grafis & aplikasi premium. Temukan semua kontak dan sosial media kami di sini!</div>  <div class="section-title">Content Personal</div>
+  <a href="https://wa.me/6281998303132" class="link-btn" target="_blank">WhatsApp</a>
+  <a href="https://t.me/finoyaaa" class="link-btn" target="_blank">Telegram</a>  <div class="section-title">Sosial Media</div>
+  <a href="https://www.tiktok.com/@pinoo.design" class="link-btn" target="_blank">TikTok: @pinoo.design</a>
+  <a href="https://www.instagram.com/pinoo.design" class="link-btn" target="_blank">Instagram: @pinoo.design</a>
+  <a href="https://www.pinterest.com/pinodesign__/" class="link-btn" target="_blank">Pinterest: pinodesign__</a>
+  <a href="https://lynk.id/pinoodesignnn" class="link-btn" target="_blank">Lynk.id</a>  <div class="footer">
+    &copy; 2025 PinoDesign. All rights reserved.
+  </div></body>
 </html>
